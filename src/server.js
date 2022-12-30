@@ -1,4 +1,5 @@
 const express = require("express");
+const { cacheSetUp } = require("./cache/redisCache");
 const { scheduleCronJobs } = require("./scheduleCronJobs");
 
 const app = express();
@@ -13,6 +14,7 @@ async function init() {
     app.listen(port, () => {
       console.log(`App listening on port ${port}`);
     });
+    await cacheSetUp();
     await scheduleCronJobs();
   } catch (error) {
     console.error(`An error occurred: ${JSON.stringify(error)}`);
