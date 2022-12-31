@@ -30,9 +30,6 @@ async function postAnswers() {
             console.log(error)
         }
     }
-
-
-
 }
 
 module.exports = { postAnswers }

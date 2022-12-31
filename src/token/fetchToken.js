@@ -4,11 +4,18 @@ const { API_URL } = require('../util/constants')
 let token;
 
 async function fetchApiToken() {
-    const { data } = await axios.get(
-        API_URL + 'subscribe'
-    );
-    console.log('token: ', data.token)
-    token = data.token
+    try {
+        const response = await axios.get(
+            API_URL + 'subscribe'
+        );
+
+        if (response.code === 200) {
+            token = response.data.token
+        }
+    } catch (error) {
+        console.log(error);
+    }
+
 }
 
 async function getToken() {

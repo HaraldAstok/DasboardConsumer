@@ -4,6 +4,7 @@ const client = redis.createClient();
 async function getAllCacheValues() {
     const keys = await client.keys('*')
     let values = [];
+    
     if (keys) {
         for (const key of keys) {
             const value = await client.get(key);
@@ -24,17 +25,14 @@ async function getAllCacheValues() {
 
 async function setCacheValue(key, result) {
     await client.set(key, JSON.stringify(result), {
-        EX: 60,
-        NX: true
+        EX: 60, // gives cache value 60 sec TTL
+        NX: true // if a same key already exists, deletes the older one
     })
 }
 
 async function cacheSetUp() {
-
     client.on('error', (err) => console.log('Redis Client Error', err));
-
     await client.connect();
-
 }
 
 
