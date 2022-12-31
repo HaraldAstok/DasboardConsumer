@@ -8,8 +8,7 @@ async function fetchApiToken() {
         const response = await axios.get(
             API_URL + 'subscribe'
         );
-
-        if (response.code === 200) {
+        if (response.status === 200) {
             token = response.data.token
         }
     } catch (error) {

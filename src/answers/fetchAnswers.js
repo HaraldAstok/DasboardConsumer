@@ -12,7 +12,7 @@ async function fetchAnswers() {
                 API_URL + 'answers/' + token
             )
 
-            if (response.code === 200) {
+            if (response.status === 200) {
                 for (const answer of response.data.answers) {
                     try {
                         const key = answer.user_uuid + answer.client_timestamp;
