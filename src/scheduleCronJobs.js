@@ -11,22 +11,19 @@ async function scheduleCronJobs() {
 }
 
 async function fetchTokenCronJob() {
-    //cron.schedule('*/30 * * * * *', async function () {
-    cron.schedule('*/20 * * * * *', async function () {
+    cron.schedule('*/30 * * * * *', async function () {
         await fetchApiToken();
     })
 }
 
 async function fetchAnswersCronJob() {
-    // cron.schedule('*/1 * * * * *', async function () {
-    cron.schedule('*/10 * * * * *', async function () {
+    cron.schedule('*/1 * * * * *', async function () {
         await fetchAnswers();
     })
 }
 
 async function postStats() {
-    //cron.schedule('*/1 * * * * *', async function () {
-    cron.schedule('*/10 * * * * *', async function () {
+    cron.schedule('*/1 * * * * *', async function () {
         await postAnswers();
     })
 }
