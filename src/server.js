@@ -1,11 +1,9 @@
 const express = require("express");
-const { cacheSetUp } = require("./cache/redisCache");
+const { cacheSetUp, getAllCacheValues } = require("./cache/redisCache");
 const { scheduleCronJobs } = require("./scheduleCronJobs");
 
 const app = express();
 const port = process.env.PORT || 3001;
-
-
 
 init();
 
