@@ -5,11 +5,12 @@ let token;
 
 async function fetchApiToken() {
     try {
-        const response = await axios.get(
+        const {status, data} = await axios.get(
             API_URL + 'subscribe'
         );
-        if (response.status === 200) {
-            token = response.data.token
+
+        if (status === 200) {
+            token = data.token
         }
     } catch (error) {
         console.log(error);

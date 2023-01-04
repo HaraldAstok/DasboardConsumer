@@ -5,6 +5,7 @@ const { fetchApiToken } = require('../token/fetchToken');
 
 
 async function scheduleCronJobs() {
+    await fetchApiToken(); // get new token at the start of service
     await fetchTokenCronJob();
     await fetchAnswersCronJob();
     await postStats();
