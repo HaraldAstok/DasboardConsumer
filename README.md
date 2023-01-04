@@ -27,3 +27,6 @@
 
 -   Total time spent on this exercise - around 6.5h
 -   Most challenging part was setting up redis, storing and retrieving useable data
+
+**EDIT 4th january**
+-   In the branch `improvement-ideas` made a change that the service gets a token immediately when service starts and get a new token when getting answers fails because of token
